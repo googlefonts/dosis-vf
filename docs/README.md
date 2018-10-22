@@ -88,7 +88,7 @@
 * :warning: **WARN** This check inspects the glyph outlines and detects the total number of contours in each of them. The expected values are infered from the typical ammounts of contours observed in a large collection of reference font families. The divergences listed below may simply indicate a significantly different design on some of your glyphs. On the other hand, some of these may flag actual bugs in the font such as glyphs mapped to an incorrect codepoint. Please consider reviewing the design and codepoint assignment of these to make sure they are correct.
 
 The following glyphs do not have the recommended number of contours:
-
+`
 Glyph name: aogonek	Contours detected: 3	Expected: 2
 Glyph name: eogonek	Contours detected: 3	Expected: 2
 Glyph name: uni0123	Contours detected: 5	Expected: 3 or 4
