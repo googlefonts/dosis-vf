@@ -21,8 +21,19 @@
 * :fire: **FAIL** MS-FonVal: The device table's DeltaFormat value is invalid DETAILS: LookupList, Lookup[0], SubTable[0](PairPos, fmt 1), PairSet[0], PairValueRecord[0], Value1, XAdvDeviceTable, DeltaFormat = 32768
 * :fire: **FAIL** MS-FonVal: The device table's DeltaFormat value is invalid DETAILS: LookupList, Lookup[0], SubTable[0](PairPos, fmt 1), PairSet[0], PairValueRecord[1], Value1, XAdvDeviceTable, DeltaFormat = 32768
 * :fire: **FAIL** MS-FonVal: The device table's DeltaFormat value is invalid DETAILS: LookupList, Lookup[0], SubTable[0](PairPos, fmt 1), PairSet[0], PairValueRecord[2], Value1, XAdvDeviceTable, DeltaFormat = 32768
-...
- :fire: **FAIL** MS-FonVal: The device table's DeltaFormat value is invalid DETAILS: LookupList, Lookup[4], SubTable[0](MarkMarkPos), Mark2Array, Mark2Record[0], Mark2Anchor[0], YDeviceTable, DeltaFormat = 32768
+ :fire: **FAIL** MS-FonVal: The device table's DeltaFormat value is invalid DETAILS: LookupList, Lookup[3], SubTable[0](MarkMarkPos), Mark2Array, Mark2Record[13], Mark2Anchor[0], XDeviceTable, DeltaFormat = 32768
+* :fire: **FAIL** MS-FonVal: The device table's DeltaFormat value is invalid DETAILS: LookupList, Lookup[3], SubTable[0](MarkMarkPos), Mark2Array, Mark2Record[13], Mark2Anchor[0], YDeviceTable, DeltaFormat = 32768
+* :fire: **FAIL** MS-FonVal: The device table's DeltaFormat value is invalid DETAILS: LookupList, Lookup[3], SubTable[0](MarkMarkPos), Mark2Array, Mark2Record[14], Mark2Anchor[0], XDeviceTable, DeltaFormat = 32768
+* :fire: **FAIL** MS-FonVal: The device table's DeltaFormat value is invalid DETAILS: LookupList, Lookup[3], SubTable[0](MarkMarkPos), Mark2Array, Mark2Record[14], Mark2Anchor[0], YDeviceTable, DeltaFormat = 32768
+* :fire: **FAIL** MS-FonVal: The device table's DeltaFormat value is invalid DETAILS: LookupList, Lookup[3], SubTable[0](MarkMarkPos), Mark2Array, Mark2Record[15], Mark2Anchor[0], XDeviceTable, DeltaFormat = 32768
+* :fire: **FAIL** MS-FonVal: The device table's DeltaFormat value is invalid DETAILS: LookupList, Lookup[3], SubTable[0](MarkMarkPos), Mark2Array, Mark2Record[15], Mark2Anchor[0], YDeviceTable, DeltaFormat = 32768
+* :fire: **FAIL** MS-FonVal: The device table's DeltaFormat value is invalid DETAILS: LookupList, Lookup[3], SubTable[0](MarkMarkPos), Mark2Array, Mark2Record[16], Mark2Anchor[0], XDeviceTable, DeltaFormat = 32768
+* :fire: **FAIL** MS-FonVal: The device table's DeltaFormat value is invalid DETAILS: LookupList, Lookup[3], SubTable[0](MarkMarkPos), Mark2Array, Mark2Record[16], Mark2Anchor[0], YDeviceTable, DeltaFormat = 32768
+* :fire: **FAIL** MS-FonVal: The LookupFlag reserved bits are not all set to zero DETAILS: LookupList, Lookup[4]
+* :fire: **FAIL** MS-FonVal: The device table's DeltaFormat value is invalid DETAILS: LookupList, Lookup[4], SubTable[0](MarkMarkPos), Mark1Array, MarkRecord[0], AnchorTable, XDeviceTable, DeltaFormat = 32768
+* :fire: **FAIL** MS-FonVal: The device table's DeltaFormat value is invalid DETAILS: LookupList, Lookup[4], SubTable[0](MarkMarkPos), Mark1Array, MarkRecord[0], AnchorTable, YDeviceTable, DeltaFormat = 32768
+* :fire: **FAIL** MS-FonVal: The device table's DeltaFormat value is invalid DETAILS: LookupList, Lookup[4], SubTable[0](MarkMarkPos), Mark2Array, Mark2Record[0], Mark2Anchor[0], XDeviceTable, DeltaFormat = 32768
+* :fire: **FAIL** MS-FonVal: The device table's DeltaFormat value is invalid DETAILS: LookupList, Lookup[4], SubTable[0](MarkMarkPos), Mark2Array, Mark2Record[0], Mark2Anchor[0], YDeviceTable, DeltaFormat = 32768
 * :fire: **FAIL** MS-FonVal: The PostScript string is not present for both required platforms DETAILS: Mac Postscript string is missing, but MS Postscript string is present
 * :warning: **WARN** MS-FonVal: Recommended table is missing DETAILS: kern
 * :warning: **WARN** MS-FonVal: Recommended table is missing DETAILS: hdmx
@@ -88,7 +99,7 @@
 * :warning: **WARN** This check inspects the glyph outlines and detects the total number of contours in each of them. The expected values are infered from the typical ammounts of contours observed in a large collection of reference font families. The divergences listed below may simply indicate a significantly different design on some of your glyphs. On the other hand, some of these may flag actual bugs in the font such as glyphs mapped to an incorrect codepoint. Please consider reviewing the design and codepoint assignment of these to make sure they are correct.
 
 The following glyphs do not have the recommended number of contours:
-`
+
 Glyph name: aogonek	Contours detected: 3	Expected: 2
 Glyph name: eogonek	Contours detected: 3	Expected: 2
 Glyph name: uni0123	Contours detected: 5	Expected: 3 or 4
