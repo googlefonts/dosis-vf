@@ -1,5 +1,9 @@
 {
 .appVersion = "1172";
+DisplayStrings = (
+"ø/oslashacute",
+"a/aogonek"
+);
 copyright = "Copyright 2011 The Dosis Project Authors (impallari@gmail.com)";
 customParameters = (
 {
@@ -28637,7 +28641,7 @@ unicode = 1EF8;
 },
 {
 glyphname = a;
-lastChange = "2016-09-01 13:30:52 +0000";
+lastChange = "2018-10-23 03:17:29 +0000";
 layers = (
 {
 anchors = (
@@ -28647,7 +28651,7 @@ position = "{212, 0}";
 },
 {
 name = ogonek;
-position = "{381, 10}";
+position = "{329, 13}";
 },
 {
 name = top;
@@ -30485,7 +30489,7 @@ unicode = 0101;
 },
 {
 glyphname = aogonek;
-lastChange = "2016-11-18 00:08:07 +0000";
+lastChange = "2018-10-23 03:17:29 +0000";
 layers = (
 {
 components = (
@@ -30494,7 +30498,7 @@ name = a;
 },
 {
 name = ogonekcomb;
-transform = "{1, 0, 0, 1, 303, 0}";
+transform = "{1, 0, 0, 1, 251, 3}";
 }
 );
 hints = (
@@ -47806,7 +47810,7 @@ unicode = 014D;
 },
 {
 glyphname = oslash;
-lastChange = "2016-09-01 12:53:00 +0000";
+lastChange = "2018-10-23 03:03:00 +0000";
 layers = (
 {
 anchors = (
@@ -47850,7 +47854,6 @@ name = o;
 },
 {
 name = slash.001;
-transform = "{1, 0, 0, 1, 10, 0}";
 }
 );
 hints = (
