@@ -1,8 +1,8 @@
 {
 .appVersion = "1172";
 DisplayStrings = (
-"ø/oslashacute",
-"a/aogonek"
+i,
+"/dotaccentcomb/iogonek"
 );
 copyright = "Copyright 2011 The Dosis Project Authors (impallari@gmail.com)";
 customParameters = (
@@ -41987,7 +41987,7 @@ unicode = 012B;
 },
 {
 glyphname = iogonek;
-lastChange = "2016-09-01 12:52:20 +0000";
+lastChange = "2018-10-23 14:10:55 +0000";
 layers = (
 {
 components = (
@@ -99982,7 +99982,7 @@ unicode = 0308;
 {
 export = 0;
 glyphname = dotaccentcomb;
-lastChange = "2018-10-22 14:55:24 +0000";
+lastChange = "2018-10-23 14:13:03 +0000";
 layers = (
 {
 anchors = (
@@ -100032,18 +100032,18 @@ paths = (
 {
 closed = 1;
 nodes = (
-"127 600 OFFCURVE",
-"139 613 OFFCURVE",
-"139 630 CURVE SMOOTH",
-"139 647 OFFCURVE",
-"127 659 OFFCURVE",
-"110 659 CURVE SMOOTH",
-"92 659 OFFCURVE",
-"80 647 OFFCURVE",
-"80 630 CURVE SMOOTH",
-"80 613 OFFCURVE",
-"92 600 OFFCURVE",
-"110 600 CURVE SMOOTH"
+"129 601 OFFCURVE",
+"143 616 OFFCURVE",
+"143 635 CURVE SMOOTH",
+"143 654 OFFCURVE",
+"129 668 OFFCURVE",
+"110 668 CURVE SMOOTH",
+"90 668 OFFCURVE",
+"76 654 OFFCURVE",
+"76 635 CURVE SMOOTH",
+"76 616 OFFCURVE",
+"90 601 OFFCURVE",
+"110 601 CURVE SMOOTH"
 );
 }
 );
