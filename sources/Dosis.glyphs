@@ -2,7 +2,9 @@
 .appVersion = "1172";
 DisplayStrings = (
 i,
-"/dotaccentcomb/iogonek"
+"/dotaccentcomb/iogonek",
+"a/aogonek",
+"/aogonek"
 );
 copyright = "Copyright 2011 The Dosis Project Authors (impallari@gmail.com)";
 customParameters = (
@@ -28641,7 +28643,7 @@ unicode = 1EF8;
 },
 {
 glyphname = a;
-lastChange = "2018-10-23 03:17:29 +0000";
+lastChange = "2018-10-23 14:51:14 +0000";
 layers = (
 {
 anchors = (
@@ -28816,7 +28818,7 @@ position = "{242, 0}";
 },
 {
 name = ogonek;
-position = "{436, 10}";
+position = "{363, 10}";
 },
 {
 name = top;
@@ -30489,7 +30491,7 @@ unicode = 0101;
 },
 {
 glyphname = aogonek;
-lastChange = "2018-10-23 03:17:29 +0000";
+lastChange = "2018-10-23 14:51:14 +0000";
 layers = (
 {
 components = (
@@ -30545,7 +30547,7 @@ name = a;
 },
 {
 name = ogonekcomb;
-transform = "{1, 0, 0, 1, 329, 0}";
+transform = "{1, 0, 0, 1, 256, 0}";
 }
 );
 hints = (
