@@ -1,6 +1,6 @@
 import os 
 import subprocess
-
+from fontTools.ttLib import TTFont
 
 try:
     print("\n**** Running Fontmake ******************************\n")
@@ -34,4 +34,12 @@ os.chdir("..")
 cwd = os.getcwd()
 print("     In Directory:", cwd)
 # subprocess.call(['gftools', 'fix-dsgi', 'fonts/Staatliches-Regular.ttf', '--autofix'])
+
+
+print("\n**** Run: edit xAvgCharWidth  *********************************\n")
+cwd = os.getcwd()
+print("     In Directory:", cwd)
+font = TTFont('fonts/Dosis-VF.ttf')
+print(font)
+print("     [+] Done")
 
