@@ -22,10 +22,24 @@
 * :fire: **FAIL** MS-FonVal: The device table's DeltaFormat value is invalid DETAILS: LookupList, Lookup[0], SubTable[0](PairPos, fmt 1), PairSet[0], PairValueRecord[1], Value1, XAdvDeviceTable, DeltaFormat = 32768
 * :fire: **FAIL** MS-FonVal: The device table's DeltaFormat value is invalid DETAILS: LookupList, Lookup[0], SubTable[0](PairPos, fmt 1), PairSet[0], PairValueRecord[2], Value1, XAdvDeviceTable, DeltaFormat = 32768
 * :fire: **FAIL** MS-FonVal: The device table's DeltaFormat value is invalid DETAILS: LookupList, Lookup[0], SubTable[0](PairPos, fmt 1), PairSet[0], PairValueRecord[3], Value1, XAdvDeviceTable, DeltaFormat = 32768
+* :fire: **FAIL** MS-FonVal: The device table's DeltaFormat value is invalid DETAILS: LookupList, Lookup[0], SubTable[0](PairPos, fmt 1), PairSet[0], PairValueRecord[4], Value1, XAdvDeviceTable, DeltaFormat = 32768
+* :fire: **FAIL** MS-FonVal: The device table's DeltaFormat value is invalid DETAILS: LookupList, Lookup[0], SubTable[0](PairPos, fmt 1), PairSet[0], PairValueRecord[5], Value1, XAdvDeviceTable, DeltaFormat = 32768
+* :fire: **FAIL** MS-FonVal: The device table's DeltaFormat value is invalid DETAILS: LookupList, Lookup[0], SubTable[0](PairPos, fmt 1), PairSet[0], PairValueRecord[6], Value1, XAdvDeviceTable, DeltaFormat = 32768
+* :fire: **FAIL** MS-FonVal: The device table's DeltaFormat value is invalid DETAILS: LookupList, Lookup[0], SubTable[0](PairPos, fmt 1), PairSet[0], PairValueRecord[7], Value1, XAdvDeviceTable, DeltaFormat = 32768
+* :fire: **FAIL** MS-FonVal: The device table's DeltaFormat value is invalid DETAILS: LookupList, Lookup[0], SubTable[0](PairPos, fmt 1), PairSet[0], PairValueRecord[8], Value1, XAdvDeviceTable, DeltaFormat = 32768
+* :fire: **FAIL** MS-FonVal: The device table's DeltaFormat value is invalid DETAILS: LookupList, Lookup[0], SubTable[0](PairPos, fmt 1), PairSet[0], PairValueRecord[9], Value1, XAdvDeviceTable, DeltaFormat = 32768
+* :fire: **FAIL** MS-FonVal: The device table's DeltaFormat value is invalid DETAILS: LookupList, Lookup[0], SubTable[0](PairPos, fmt 1), PairSet[0], PairValueRecord[10], Value1, XAdvDeviceTable, DeltaFormat = 32768
 ...
 ..
 .
 
+* **WARN** More DeltaFormat·value·is·invalid lines removed
+
+.
+..
+...
+* :fire: **FAIL** MS-FonVal: The device table's DeltaFormat value is invalid DETAILS: LookupList, Lookup[0], SubTable[1](PairPos, fmt 2), Class1Record[40], Class2Record[17], Value1, XAdvDeviceTable, DeltaFormat = 32768
+* :fire: **FAIL** MS-FonVal: The device table's DeltaFormat value is invalid DETAILS: LookupList, Lookup[0], SubTable[1](PairPos, fmt 2), Class1Record[40], Class2Record[23], Value1, XAdvDeviceTable, DeltaFormat = 32768
 * :fire: **FAIL** MS-FonVal: The device table's DeltaFormat value is invalid DETAILS: LookupList, Lookup[0], SubTable[1](PairPos, fmt 2), Class1Record[40], Class2Record[24], Value1, XAdvDeviceTable, DeltaFormat = 32768
 * :fire: **FAIL** MS-FonVal: The device table's DeltaFormat value is invalid DETAILS: LookupList, Lookup[0], SubTable[1](PairPos, fmt 2), Class1Record[40], Class2Record[26], Value1, XAdvDeviceTable, DeltaFormat = 32768
 * :fire: **FAIL** MS-FonVal: The device table's DeltaFormat value is invalid DETAILS: LookupList, Lookup[0], SubTable[1](PairPos, fmt 2), Class1Record[40], Class2Record[29], Value1, XAdvDeviceTable, DeltaFormat = 32768
@@ -34,7 +48,6 @@
 * :warning: **WARN** MS-FonVal: Recommended table is missing DETAILS: hdmx
 * :warning: **WARN** MS-FonVal: Recommended table is missing DETAILS: VDMX
 * :warning: **WARN** MS-FonVal: The version number is valid, but less than 5 DETAILS: 4
-* :warning: **WARN** MS-FonVal: The xAvgCharWidth field does not equal the calculated value DETAILS: actual = 441, calc = 435
 * :warning: **WARN** MS-FonVal: PANOSE(tm) is undefined. Font mapping may not work properly
 * :warning: **WARN** MS-FonVal: There are undefined bits set in fsSelection field DETAILS: Bit(s) 7
 * :warning: **WARN** MS-FonVal: The value of sTypoAscender minus sTypoDescender is greater than unitsPerEm DETAILS: sTypoAscender = 1027, sTypoDescender = -237
@@ -51,14 +64,15 @@
 * :warning: **WARN** MS-FonVal: Not all extremes are marked with the on-curve control points  DETAILS: Glyph index 405
 * :warning: **WARN** MS-FonVal: Not all extremes are marked with the on-curve control points  DETAILS: Glyph index 423
 * :warning: **WARN** MS-FonVal: The unitsPerEm value is not a power of two DETAILS: 1000
-* :warning: **WARN** MS-FonVal: The modified time is an unlikely value DETAILS: modified = 3623169309 (Tuesday, October 23, 2018 7:55 PM)
+* :warning: **WARN** MS-FonVal: The created time is an unlikely value DETAILS: created = 3623185780 (Wednesday, October 24, 2018 12:29 AM)
+* :warning: **WARN** MS-FonVal: The modified time is an unlikely value DETAILS: modified = 3623192465 (Wednesday, October 24, 2018 2:21 AM)
 * :warning: **WARN** MS-FonVal: The lowestRecPPEM value may be unreasonably small DETAILS: lowestRecPPEM = 6
 * :warning: **WARN** MS-FonVal: Ascender is different than OS/2.usWinAscent. Different line heights on Windows and Apple DETAILS: hhea.Ascender = 1027, OS/2.usWinAscent = 1123
 * :warning: **WARN** MS-FonVal: The LineGap value is less than the recommended value DETAILS: LineGap = 0, recommended = 96
 * :warning: **WARN** MS-FonVal: The leftSideBearing is greater than the advance width (unlikely value) DETAILS: glyph# 418
 * :warning: **WARN** MS-FonVal: The leftSideBearing is greater than the advance width (unlikely value) DETAILS: glyph# 422
 * :warning: **WARN** MS-FonVal: The leftSideBearing is greater than the advance width (unlikely value) DETAILS: glyph# 425
-* :warning: **WARN** MS-FonVal: Loca references a glyf entry which length is not a multiple of 4 DETAILS: Number of glyphs with the warning = 1
+* :warning: **WARN** MS-FonVal: Loca references a glyf entry which length is not a multiple of 4 DETAILS: Number of glyphs with the warning = 206
 * :warning: **WARN** MS-FonVal: maxSizeOfInstructions computation not via either approved method DETAILS: glyf maxSizeOfInstructions=341, prep size=203, fpgm size=3605, whereas maxp maxSizeOfInstruction is 3605
 
 </details>
@@ -84,10 +98,10 @@ Glyph name: Uogonek	Contours detected: 2	Expected: 1
 
 </details>
 <details>
-<summary>:warning: <b>WARN:</b> Check if OS/2 xAvgCharWidth is correct.</summary>
+<summary>:warning: <b>WARN:</b> Combined length of family and style must not exceed 20 characters.</summary>
 
-* [com.google.fonts/check/034](https://github.com/googlefonts/fontbakery/search?q=com.google.fonts/check/034)
-* :warning: **WARN** OS/2 xAvgCharWidth is 441 but should be 435 which corresponds to the weighted average of the widths of the latin lowercase glyphs in the font. These are similar values, which may be a symptom of the slightly different calculation of the xAvgCharWidth value in font editors. There's further discussion on this at https://github.com/googlefonts/fontbakery/issues/1622
+* [com.google.fonts/check/163](https://github.com/googlefonts/fontbakery/search?q=com.google.fonts/check/163)
+* :warning: **WARN** The combined length of family and style exceeds 20 chars in the following 'WINDOWS' entries: FONT_FAMILY_NAME = 'Dosis ExtraLight' / SUBFAMILY_NAME = 'Regular'
 
 </details>
 <details>
