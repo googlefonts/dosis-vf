@@ -64,6 +64,9 @@ parser.add_argument(
 parser.add_argument(
     "--ttfautohint", help="Store ttfautohint flags"
 )
+parser.add_argument(
+    "--static", help="Build static fonts", action="store_true"
+)
 args = parser.parse_args()
 
 
@@ -118,6 +121,7 @@ def display_args():
     print("     [+] --googlefonts\t", args.googlefonts)
     print("     [+] --ttfautohint\t", args.ttfautohint)
     print("     [+] --fontbakery\t", args.fontbakery)
+    print("     [+] --static\t", args.static)
     printG("    [!] Done")
     time.sleep(1)
 
@@ -168,12 +172,12 @@ def get_style_list():
     printG("    [!] Done")
 
 
-def run_fontmake():
+def run_fontmake_variable():
     """
-    Builds ttf fonts files with font make.
+    Builds ttf variable font files with FontMake.
     """
     for source in sources:
-        print("\n**** Building %s font files with Fontmake:" % source)
+        print("\n**** Building %s variable font files with FontMake:" % source)
         print("     [+] Run: fontmake ")
         subprocess.call(
             "fontmake \
@@ -188,12 +192,55 @@ def run_fontmake():
     printG("    [!] Done")
 
 
+def run_fontmake_static():
+    """
+    Builds ttf static font files with FontMake.
+    """
+    for source in sources:
+        print("\n**** Building %s static font files with FontMake:" % source)
+        print("     [+] Run: fontmake ")
+        subprocess.call(
+            "fontmake \
+                      -g sources/%s.glyphs \
+                      -o ttf \
+                      --keep-overlaps -i --verbose DEBUG"
+            % (source),
+            shell=True,
+        )
+        print("     [!] Done")
+    printG("    [!] Done")
+
+
+def prep_static_fonts():
+    """
+    Move static fonts to the fonts/static directory.
+    Run ttfautohint on all fonts and fix missing dsig
+    """
+    print("\n**** Moving static fonts:")
+    for path in glob.glob("instance_ttf/*.ttf"):
+        print(path)
+        subprocess.call("cp %s fonts/static-fonts/" % path, shell=True)
+    subprocess.call("rm -rf instance_ttf", shell=True)
+    for static_font in glob.glob("fonts/static-fonts/*.ttf"):
+        print(static_font)
+        subprocess.call("gftools fix-dsig %s --autofix" % static_font, shell=True)
+        subprocess.call(
+            "ttfautohint %s %s temp.ttf"
+            % (args.ttfautohint, static_font),
+            shell=True,
+        )
+        subprocess.call("cp temp.ttf %s" % static_font, shell=True)
+        subprocess.call("rm -rf temp.ttf", shell=True)
+    time.sleep(1)
+    printG("    [!] Done")
+
+
 def rm_build_dirs():
     """
     Cleanup build dirs
     """
-    print("\n**** Removing build directories")
-    print("     [+] Run: rm -rf variable_ttf master_ufo instance_ufo")
+    print("\n**** removing build directories")
+    print("     [+] run: rm -rf variable_ttf master_ufo instance_ufo")
     subprocess.call("rm -rf variable_ttf master_ufo instance_ufo", shell=True)
     printG("    [!] Done")
     time.sleep(1)
@@ -216,6 +263,30 @@ def fix_dsig():
 
 
 def ttfautohint():
+    """
+    Runs ttfautohint with various flags set. For more info run: ttfautohint --help
+    """
+    print("\n**** Run: ttfautohint")
+    os.chdir("fonts")
+    cwd = os.getcwd()
+    print("     [+] In Directory:", cwd)
+    for source in sources:
+        subprocess.call(
+            "ttfautohint %s %s-VF.ttf %s-VF-Fix.ttf"
+            % (args.ttfautohint, source, source),
+            shell=True,
+        )
+        subprocess.call("cp %s-VF-Fix.ttf %s-VF.ttf" % (source, source), shell=True)
+        subprocess.call("rm -rf %s-VF-Fix.ttf" % source, shell=True)
+        print("     [+] Done:", source)
+    os.chdir("..")
+    cwd = os.getcwd()
+    print("     [+] In Directory:", cwd)
+    printG("    [!] Done")
+    time.sleep(1)
+
+
+def ttfautohint_static():
     """
     Runs ttfautohint with various flags set. For more info run: ttfautohint --help
     """
@@ -284,14 +355,22 @@ def render_specimens():
 
 def main():
     """
-    Executes variable font build sequence
+    Executes font build sequence
     """
     intro()
     display_args()
     check_root_dir()
     get_source_list()
     get_style_list()
-    run_fontmake()
+    run_fontmake_variable()
+
+    # make static fonts
+    if args.static == True:
+        run_fontmake_static()
+        prep_static_fonts()
+    else:
+        pass
+
     rm_build_dirs()
     fix_dsig()
 
