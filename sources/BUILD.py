@@ -15,32 +15,39 @@
 #
 # See AUTHORS.txt for the list of Authors and LICENSE.txt for the License.
 """
-BUILD VF: Automated build process for variable font onboarding.
+Automated build process for variable font onboarding to:
+https://github.com/google/fonts
 
 
 BASIC USE:
 
-This script is designed for use with the Fully Automated Font Repository
-standard, FAFR for short. Please see the git repo for redrence:
+This script is used to build variable fonts from the command line of a
+UNIX system (MacOS, GNU+Linux, Windows Subsystem for Linux (WSL)).
 
--> https://github.com/eliheuer/fully-automated-font-repository
+To start the build process, navigate to the root directory of a font repo
+and run the following:
+
+python3 sources/BUILD.py
+
+For additional build features, the script can be run with flags, like so:
+
+python3 sources/BUILD.py --googlefonts ~/Google/fonts/ofl/$FONTNAME --static
 
 
 FLAGS:
 
-[1]  --googlefonts ~/Google/fonts/ofl/foo    Gives upstream location
-[2]  --drawbot                               Render the specimen with DrawBot
-[3]  --ttfautohint "-args"                   Autohints fonts given args
+--googlefonts ~/Google/fonts/ofl/foo    Sets upstream repo location
 
+--drawbot                               Render the specimen with DrawBot
 
-[1]: --googlefonts ~/Google/fonts/ofl/foo
+--ttfautohint "-args"                   Autohints fonts given args
 
-This argument lets the skript know where the upstream location of the fonts
-is in the Google Fonts upstream repository.
+--fontbakery                            Run QA tests on fonts in upstream
 
+--static                                Output static fonts from VF source
 
+--fixnonhinting                         Run if --ttfautohint is not used
 
-Builds variable fonts using flags for input.
 """
 import argparse
 import glob
@@ -66,6 +73,9 @@ parser.add_argument(
 )
 parser.add_argument(
     "--static", help="Build static fonts", action="store_true"
+)
+parser.add_argument(
+    "--fixnonhinting", help="Fix nonhinting with gs tools", action="store_true"
 )
 args = parser.parse_args()
 
@@ -100,16 +110,16 @@ def intro():
     """
     Gives basic script info.
     """
-    printG("#    # #####                    #####    ################")
-    printG("#    # #                        #   #    #   ##         #")
-    printG(" #  #  ####                      #   #  #   # #   #######")
-    printG(" #  #  #     <---------------->  #    ##    # #      #")
-    printG("  ##   #                          #        #  #   ####")
-    printG("  ##   #                          ##########  #####")
+    printG("#    # #####        #####    ################")
+    printG("#    # #            #   #    #   ##         #")
+    printG(" #  #  ####          #   #  #   # #   #######")
+    printG(" #  #  #     <---->  #    ##    # #      #")
+    printG("  ##   #              #        #  #   ####")
+    printG("  ##   #              ##########  #####")
     print("\n**** Starting variable font build script:")
     print("     [+]", time.ctime())
     printG("    [!] Done")
-    time.sleep(1)
+    time.sleep(4)
 
 
 def display_args():
@@ -117,13 +127,14 @@ def display_args():
     Gives info about the flags.
     """
     print("\n**** Settings:")
-    print("     [+] --drawbot\t", args.drawbot)
-    print("     [+] --googlefonts\t", args.googlefonts)
-    print("     [+] --ttfautohint\t", args.ttfautohint)
-    print("     [+] --fontbakery\t", args.fontbakery)
-    print("     [+] --static\t", args.static)
+    print("     [+] --drawbot\t\t", args.drawbot)
+    print("     [+] --googlefonts\t\t", args.googlefonts)
+    print("     [+] --ttfautohint\t\t", args.ttfautohint)
+    print("     [+] --fontbakery\t\t", args.fontbakery)
+    print("     [+] --static\t\t", args.static)
+    print("     [+] --fixnonhinting\t", args.fixnonhinting)
     printG("    [!] Done")
-    time.sleep(1)
+    time.sleep(4)
 
 
 def check_root_dir():
@@ -139,7 +150,7 @@ def check_root_dir():
         printG("    [!] Done")
     else:
         printR("     [!] ERROR: Run script from the root directory")
-    time.sleep(1)
+    time.sleep(2)
 
 
 def get_source_list():
@@ -183,7 +194,6 @@ def run_fontmake_variable():
             "fontmake \
                       -g sources/%s.glyphs \
                       -o variable \
-                      --verbose DEBUG \
                       --output-path fonts/%s-VF.ttf"
             % (source, source),
             shell=True,
@@ -203,7 +213,7 @@ def run_fontmake_static():
             "fontmake \
                       -g sources/%s.glyphs \
                       -o ttf \
-                      --keep-overlaps -i --verbose DEBUG"
+                      --keep-overlaps -i"
             % (source),
             shell=True,
         )
@@ -217,20 +227,32 @@ def prep_static_fonts():
     Run ttfautohint on all fonts and fix missing dsig
     """
     print("\n**** Moving static fonts:")
+
     for path in glob.glob("instance_ttf/*.ttf"):
         print(path)
         subprocess.call("cp %s fonts/static-fonts/" % path, shell=True)
     subprocess.call("rm -rf instance_ttf", shell=True)
+
     for static_font in glob.glob("fonts/static-fonts/*.ttf"):
         print(static_font)
         subprocess.call("gftools fix-dsig %s --autofix" % static_font, shell=True)
-        subprocess.call(
-            "ttfautohint %s %s temp.ttf"
-            % (args.ttfautohint, static_font),
-            shell=True,
-        )
-        subprocess.call("cp temp.ttf %s" % static_font, shell=True)
-        subprocess.call("rm -rf temp.ttf", shell=True)
+
+        if args.fixnonhinting == True:
+            print("FIXING NONHINTING")
+            subprocess.call("gftools fix-nonhinting %s %s.fix" % (static_font, static_font), shell=True)
+            subprocess.call("mv %s.fix %s" % (static_font, static_font), shell=True)
+            subprocess.call("rm -rf %s.fix" % static_font, shell=True)
+            subprocess.call("rm -rf fonts/static-fonts/*gasp.ttf", shell=True)
+            print("     [+] Done:", static_font)
+
+        if args.ttfautohint == True:
+            subprocess.call(
+                "ttfautohint %s %s temp.ttf"
+                % (args.ttfautohint, static_font),
+                shell=True,
+            )
+            subprocess.call("cp temp.ttf %s" % static_font, shell=True)
+            subprocess.call("rm -rf temp.ttf", shell=True)
     time.sleep(1)
     printG("    [!] Done")
 
@@ -258,6 +280,22 @@ def fix_dsig():
             shell=True,
         )
         print("     [+] Done:", source)
+    printG("    [!] Done")
+    time.sleep(1)
+
+
+def fix_nonhinting():
+    """
+    Fixes non-hinting
+    """
+    print("\n**** Run: gftools: fix nonhinting")
+    for path in glob.glob("fonts/*.ttf"):
+        print(path)
+        subprocess.call("gftools fix-nonhinting %s %s.fix" % (path, path), shell=True)
+        subprocess.call("mv %s.fix %s" % (path, path), shell=True)
+        subprocess.call("rm -rf %s.fix" % path, shell=True)
+        subprocess.call("rm -rf fonts/*gasp.ttf", shell=True)
+        print("     [+] Done:", path)
     printG("    [!] Done")
     time.sleep(1)
 
@@ -321,6 +359,9 @@ def google_fonts():
                 "cp fonts/%s-VF.ttf %s/" % (source, args.googlefonts), shell=True
             )
             print("     [+] Done:", source)
+    for path in glob.glob("fonts/static-fonts/*.ttf"):
+        print(path)
+        subprocess.call("cp %s %s/static/" % (path, args.googlefonts), shell=True)
     else:
         pass
     printG("    [!] Done")
@@ -363,6 +404,12 @@ def main():
     get_source_list()
     get_style_list()
     run_fontmake_variable()
+
+    # fix non-hinting
+    if args.fixnonhinting == True:
+        fix_nonhinting()
+    else:
+        pass
 
     # make static fonts
     if args.static == True:
