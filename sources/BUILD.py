@@ -386,8 +386,7 @@ def render_specimens():
     """
     print("\n**** Run: DrawBot")
     subprocess.call(
-        "python3 docs/drawbot-sources/basic-specimen.py \
-        > /dev/null 2>&1",
+        "python3 docs/drawbot-sources/basic-specimen.py",
         shell=True,
     )
     printG("    [!] Done")
