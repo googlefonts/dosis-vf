@@ -8,7 +8,7 @@ import os
 W, H, M, F = 1024, 1024, 32, 32
 
 
-font("fonts/Dosis-VF_VTT.ttf")
+font("fonts/Dosis-VF.ttf")
 for axis, data in listFontVariations().items():
     print((axis, data))
 
@@ -54,7 +54,7 @@ for frame in range(65):
 
     fontVariations(wght=varWght)
     print("varWght=", varWght)
-    font("fonts/Dosis-VF_VTT.ttf")
+    font("fonts/Dosis-VF.ttf")
     fill(0)
     stroke(None)
     fontSize(96)
