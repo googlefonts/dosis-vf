@@ -48,6 +48,7 @@ FLAGS:
 
 --fixnonhinting                         Run if --ttfautohint is not used
 
+--addfont                               Update font metadata
 """
 import argparse
 import glob
@@ -407,6 +408,23 @@ def google_fonts():
     time.sleep(1)
 
 
+def add_font():
+    """
+    Build new metadata file for font if gf flag is used.
+    """
+    print("\n**** Making new metadata file for font.")
+    if args.googlefonts is not None:
+        for source in sources:
+            subprocess.call(
+                "gftools add-font %s" % args.googlefonts, shell=True
+            )
+            print("     [+] Done:", source)
+    else:
+        printR("    [!] Error: Use Google Fonts Flag (--googlefonts)")
+    printG("    [!] Done")
+    time.sleep(1)
+
+
 def fontbakery():
     """
     Run FontBakery on the GoogleFonts repo.
@@ -468,6 +486,12 @@ def main():
     # GoogleFonts
     if args.googlefonts is not None:
         google_fonts()
+    else:
+        pass
+
+    # AddFont
+    if args.addfont == True:
+        add_font()
     else:
         pass
 
