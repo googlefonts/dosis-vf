@@ -414,11 +414,10 @@ def add_font():
     """
     print("\n**** Making new metadata file for font.")
     if args.googlefonts is not None:
-        for source in sources:
-            subprocess.call(
+        subprocess.call(
                 "gftools add-font %s" % args.googlefonts, shell=True
-            )
-            print("     [+] Done:", source)
+        )
+        print("     [+] Done:", source)
     else:
         printR("    [!] Error: Use Google Fonts Flag (--googlefonts)")
     printG("    [!] Done")
