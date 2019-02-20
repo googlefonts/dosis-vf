@@ -77,6 +77,9 @@ parser.add_argument(
 parser.add_argument(
     "--fixnonhinting", help="Fix nonhinting with gs tools", action="store_true"
 )
+parser.add_argument(
+    "--updatemetadata", help="Update metadata", action="store_true"
+)
 args = parser.parse_args()
 
 
@@ -119,22 +122,34 @@ def intro():
     print("\n**** Starting variable font build script:")
     print("     [+]", time.ctime())
     printG("    [!] Done")
-    time.sleep(4)
 
 
 def display_args():
     """
-    Gives info about the flags.
+    Prints info about argparse flag use.
     """
     print("\n**** Settings:")
-    print("     [+] --drawbot\t\t", args.drawbot)
-    print("     [+] --googlefonts\t\t", args.googlefonts)
+
+    if args.drawbot == True:
+        print("     [+] --drawbot\t\t", end="")
+        printG(args.drawbot)
+    else:
+        print("     [+] --drawbot\t\t", end="")
+        printR(args.drawbot)
+
+    if args.googlefonts is not None:
+        print("     [+] --googlefonts\t\t", end="")
+        printG(args.googlefonts)
+    else:
+        print("     [+] --googlefonts\t\t", end="")
+        printR(args.googlefonts)
+
     print("     [+] --ttfautohint\t\t", args.ttfautohint)
     print("     [+] --fontbakery\t\t", args.fontbakery)
     print("     [+] --static\t\t", args.static)
     print("     [+] --fixnonhinting\t", args.fixnonhinting)
     printG("    [!] Done")
-    time.sleep(4)
+    time.sleep(8)
 
 
 def check_root_dir():
