@@ -78,7 +78,7 @@ parser.add_argument(
     "--fixnonhinting", help="Fix nonhinting with gs tools", action="store_true"
 )
 parser.add_argument(
-    "--updatemetadata", help="Update metadata", action="store_true"
+    "--addfont", help="Update metadata", action="store_true"
 )
 args = parser.parse_args()
 
@@ -130,24 +130,48 @@ def display_args():
     """
     print("\n**** Settings:")
 
+    print("     [+] --drawbot\t\t", end="")
     if args.drawbot == True:
-        print("     [+] --drawbot\t\t", end="")
         printG(args.drawbot)
     else:
-        print("     [+] --drawbot\t\t", end="")
         printR(args.drawbot)
 
+    print("     [+] --googlefonts\t\t", end="")
     if args.googlefonts is not None:
-        print("     [+] --googlefonts\t\t", end="")
         printG(args.googlefonts)
     else:
-        print("     [+] --googlefonts\t\t", end="")
         printR(args.googlefonts)
 
-    print("     [+] --ttfautohint\t\t", args.ttfautohint)
-    print("     [+] --fontbakery\t\t", args.fontbakery)
-    print("     [+] --static\t\t", args.static)
-    print("     [+] --fixnonhinting\t", args.fixnonhinting)
+    print("     [+] --ttfautohint\t\t", end="")
+    if args.ttfautohint is not None:
+        printG(args.ttfautohint)
+    else:
+        printR(args.ttfautohint)
+
+    print("     [+] --fontbakery\t\t", end="")
+    if args.fontbakery == True:
+        printG(args.fontbakery)
+    else:
+        printR(args.fontbakery)
+
+    print("     [+] --static\t\t", end="")
+    if args.static == True:
+        printG(args.static)
+    else:
+        printR(args.static)
+
+    print("     [+] --fixnonhinting\t", end="")
+    if args.fixnonhinting == True:
+        printG(args.fixnonhinting)
+    else:
+        printR(args.fixnonhinting)
+
+    print("     [+] --addfont\t\t", end="")
+    if args.addfont == True:
+        printG(args.addfont)
+    else:
+        printR(args.addfont)
+
     printG("    [!] Done")
     time.sleep(8)
 

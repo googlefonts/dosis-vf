@@ -5,6 +5,6 @@ python3 sources/BUILD.py \
     --static \
     --ttfautohint "-v -W" \
     --drawbot \
+    --addfont \
     && mv ~/Google/fonts/ofl/dosis/Dosis-VF.ttf ~/Google/fonts/ofl/dosis/Dosis-Regular.ttf
 #    --fixnonhinting
-#    --updatemetadata
