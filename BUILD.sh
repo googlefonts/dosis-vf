@@ -3,7 +3,7 @@ python3 sources/BUILD.py \
     --googlefonts ~/Google/fonts/ofl/dosis \
     --fontbakery \
     --static \
-    --ttfautohint "-v" \
+    --ttfautohint "-v -W" \
     --drawbot \
     && mv ~/Google/fonts/ofl/dosis/Dosis-VF.ttf ~/Google/fonts/ofl/dosis/Dosis-Regular.ttf
 #    --fixnonhinting
