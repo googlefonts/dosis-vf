@@ -417,7 +417,7 @@ def add_font():
         subprocess.call(
                 "gftools add-font %s" % args.googlefonts, shell=True
         )
-        print("     [+] Done:", source)
+        print("     [+] Done:")
     else:
         printR("    [!] Error: Use Google Fonts Flag (--googlefonts)")
     printG("    [!] Done")
