@@ -2,8 +2,8 @@
 
 /* load local working version of font */
 @font-face {
-    font-family: 'Blotter-VF';
-    src: url('fonts/Blotter-VF.ttf');
+    font-family: 'Dosis-VF';
+    src: url('fonts/Dosis-VF.ttf');
     format("truetype");
     /*font-weight: bold;*/
     font-weight: bold;
@@ -13,7 +13,7 @@
 body {
     background-color: #aaaaaa;
     color: #000000;
-    font-family: 'Blotter-VF';
+    font-family: 'Dosis-VF';
 }
 
 h1 { margin: 0; font-size: 3rem; line-height: 3rem; }
@@ -37,7 +37,7 @@ hr {
 /* load all remote fonts */
 
 .variable {
-    font-family: 'Blotter-VF';
+    font-family: 'Dosis-VF';
     --wght: 0;
     font-variation-settings: 'wght' var(--wght);
 }
@@ -78,12 +78,11 @@ hr {
 .float-above {
     position: fixed;
     right: 24px;
-    top: 24px;
 }
 
 .intro { 
     grid-column-start: 1; 
-    grid-column-end: 4; 
+    grid-column-end: 3; 
     border-color: #000000;
     border-width: 2px;
     border-style: solid; 
@@ -92,7 +91,7 @@ hr {
 
 .left { 
     grid-column-start: 1; 
-    grid-column-end: 2; 
+    grid-column-end: 3; 
     border-color: #000000;
     border-width: 2px; 
     border-style: solid; 
@@ -151,7 +150,7 @@ hr {
 }
 
 .variable {
-    font-family: 'Blotter-VF';
+    font-family: 'Dosis-VF';
     --wght: 300;
     font-variation-settings: 'wght' var(--wght);
 }
