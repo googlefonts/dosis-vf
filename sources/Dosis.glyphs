@@ -1,7 +1,7 @@
 {
-.appVersion = "1174";
+.appVersion = "1213";
 DisplayStrings = (
-"/commaturnedabovecomb"
+"/fl"
 );
 copyright = "Copyright 2011 The Dosis Project Authors (impallari@gmail.com)";
 customParameters = (
@@ -5840,12 +5840,6 @@ color = 10;
 glyphname = Eogonek;
 layers = (
 {
-anchors = (
-{
-name = top;
-position = "{249, 731}";
-}
-);
 components = (
 {
 name = E;
@@ -55821,16 +55815,6 @@ color = 10;
 glyphname = fi;
 layers = (
 {
-anchors = (
-{
-name = caret;
-position = "{261, 0}";
-},
-{
-name = caret_1;
-position = "{238.5, 0}";
-}
-);
 background = {
 paths = (
 {
@@ -55979,16 +55963,6 @@ nodes = (
 width = 477;
 },
 {
-anchors = (
-{
-name = caret;
-position = "{318, 0}";
-},
-{
-name = caret_1;
-position = "{295, 0}";
-}
-);
 background = {
 paths = (
 {
@@ -56112,16 +56086,6 @@ color = 10;
 glyphname = fl;
 layers = (
 {
-anchors = (
-{
-name = caret;
-position = "{253, 0}";
-},
-{
-name = caret_1;
-position = "{243.5, 0}";
-}
-);
 background = {
 paths = (
 {
@@ -56244,16 +56208,6 @@ nodes = (
 width = 487;
 },
 {
-anchors = (
-{
-name = caret;
-position = "{293, 0}";
-},
-{
-name = caret_1;
-position = "{301, 0}";
-}
-);
 hints = (
 {
 place = "{46, 155}";
@@ -95334,6 +95288,7 @@ unicode = 0000;
 },
 {
 color = 10;
+export = 0;
 glyphname = uniE000;
 layers = (
 {
@@ -95371,6 +95326,7 @@ unicode = E000;
 },
 {
 color = 10;
+export = 0;
 glyphname = uniF6C3;
 layers = (
 {
