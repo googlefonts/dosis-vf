@@ -56,6 +56,8 @@ import os
 import subprocess
 import time
 from fontTools.ttLib import TTFont
+import yaml
+from gftools import stat
 
 
 # Initialize flag parser
@@ -239,6 +241,18 @@ def run_fontmake_variable():
             shell=True,
         )
         print("     [!] Done")
+
+        # adding stat tables
+        statFont = TTFont("fonts/%s-VF.ttf" %source)
+        config = yaml.load(open("sources/stat.yaml"), Loader=yaml.SafeLoader)
+        stat.gen_stat_tables_from_config(config,[statFont])
+
+        # Due to the lack of a "Regular" master, it appears that the default name table entries become "ExtraLight". This corrects them to be a more standard "Regular"
+        statFont["name"].setName("Dosis", 1, 3, 1, 1033)
+        statFont["name"].setName("IMPA;Dosis-Regular", 3, 3, 1, 1033)
+        statFont["name"].setName("Dosis Regular", 4, 3, 1, 1033)
+        statFont["name"].setName("Dosis-Regular", 6, 3, 1, 1033)
+        statFont.save("fonts/%s-VF.ttf" %source)
     printG("    [!] Done")
 
 
@@ -339,6 +353,28 @@ def fix_nonhinting():
     printG("    [!] Done")
     time.sleep(1)
 
+def fix_hinting():
+    """
+    Fixes hinting
+    """
+    print("\n**** Run: gftools: fix hinting")
+    for path in glob.glob("fonts/*.ttf"):
+        print(path)
+        subprocess.call(
+                "gftools fix-hinting %s"
+                % path, shell=True
+                )
+        subprocess.call(
+                "mv %s.fix %s"
+                % (path, path), shell=True
+                )
+        subprocess.call(
+                "rm -rf %s.fix"
+                % path, shell=True
+                )
+        print("     [+] Done:", path)
+    printG("    [!] Done")
+    time.sleep(1)
 
 def ttfautohint():
     """
@@ -479,6 +515,7 @@ def main():
     # ttfautohint
     if args.ttfautohint is not None:
         ttfautohint()
+        fix_hinting()
     else:
         pass
 
