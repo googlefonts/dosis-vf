@@ -254,7 +254,8 @@ def run_fontmake_variable():
         statFont["name"].setName("Dosis-Regular", 6, 3, 1, 1033)
 
         # removing MVAR because it is not well supported:
-        del statFont["MVAR"]
+        if statFont["MVAR"]:
+            del statFont["MVAR"]
         statFont.save("fonts/%s-VF.ttf" %source)
     printG("    [!] Done")
 
