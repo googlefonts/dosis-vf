@@ -17,8 +17,7 @@ venv: venv/touchfile
 
 # I added a postprocessing step in here in order to correct Dosis' default font name (Dosis ExtraLight), which is the result of having no master at the Regular instance location
 build.stamp: venv
-	. venv/bin/activate; gftools builder sources/config.yaml && touch build.stamp 
-	python sources/postprocessing.py
+	. venv/bin/activate; gftools builder sources/config.yaml; python sources/postprocessing.py && touch build.stamp 
 	mv fonts/variable/Dosis[wght].ttf.fix fonts/variable/Dosis[wght].ttf
 
 venv/touchfile: requirements.txt
