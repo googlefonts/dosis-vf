@@ -1,5 +1,5 @@
 {
-.appVersion = "1342";
+.appVersion = "1349";
 copyright = "Copyright 2011 The Dosis Project Authors (https://github.com/eliheuer/dosis-vf), with Reserved Font Names \"Dosis\".";
 customParameters = (
 {
@@ -98469,5 +98469,5 @@ manufacturer = "EdgarTolentino, PabloImpallari, IginoMarini";
 manufacturerURL = "http://www.impallari.com";
 unitsPerEm = 1000;
 versionMajor = 3;
-versionMinor = 1;
+versionMinor = 2;
 }
