@@ -1,20 +1,14 @@
 {
-.appVersion = "1342";
-DisplayStrings = (
-"eê",
-"/dieresiscomb/dotaccentcomb/gravecomb/acutecomb/hungarumlaut/circumflexcomb/caroncomb/brevecomb/ring/tildecomb ¯/hookabovecomb",
-i,
-"/ldot"
-);
-copyright = "Copyright 2011 The Dosis Project Authors (https://github.com/eliheuer/dosis-vf), with Reserved Font Names \"Dosis\".";
+.appVersion = "1352";
+copyright = "Copyright 2011 The Dosis Project Authors (https://github.com/googlefonts/dosis-vf)";
 customParameters = (
 {
 name = license;
-value = "This Font Software is licensed under the SIL Open Font License, Version 1.1. This license is available with a FAQ at: http://scripts.sil.org/OFL";
+value = "This Font Software is licensed under the SIL Open Font License, Version 1.1. This license is available with a FAQ at: https://scripts.sil.org/OFL";
 },
 {
 name = licenseURL;
-value = "http://scripts.sil.org/OFL";
+value = "https://scripts.sil.org/OFL";
 },
 {
 name = trademark;
